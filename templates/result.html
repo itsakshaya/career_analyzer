@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Matches</title>
+</head>
+<body>
+    <h1>Your Skills:</h1>
+    <p>{{ skills | join(', ') }}</p>
+
+    <h2>Job Role Matches:</h2>
+    <ul>
+        {% for match in matches %}
+        <li>
+            <strong>{{ match.role }}</strong> - {{ match.match_percent }}% fit<br/>
+            Missing skills: {{ match.missing_skills | join(', ') if match.missing_skills else 'None' }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
